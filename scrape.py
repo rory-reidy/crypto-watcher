@@ -28,7 +28,7 @@ if len(sys.argv) > 1:
         for i in currencies:
             price = client.get_spot_price(currency_paid = i, date=start_date)
             list.append(price.amount)
-        with open(r'prices.csv','a') as f:
+        with open(r'prices2.csv','a') as f:
             writer = csv.writer(f,lineterminator='\n')
             writer.writerow(list)
 else:
