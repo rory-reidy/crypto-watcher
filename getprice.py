@@ -5,11 +5,11 @@ import time
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-api_key='1234' #replace with actual key and secret
-api_secret='1234'
+keys = open('keys.apikeys', 'r')
+lines = keys.readlines()
+client = Client(lines[0].strip(), lines[1].strip())
+accounts = client.get_accounts()
 while True:
-    client = Client(api_key, api_secret)
-    accounts = client.get_accounts()
     filt = []
    # print(client.get_transactions())
     for i in accounts.data: 

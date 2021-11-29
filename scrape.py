@@ -5,9 +5,9 @@ import sys
 import time
 
 currencies = ['XLM/USD', 'CRO/USD', 'BTC/USD', 'ETH/USD']
-api_key='1234'
-api_secret='12'
-client = Client(api_key, api_secret)
+keys = open('keys.apikeys', 'r')
+lines = keys.readlines()
+client = Client(lines[0].strip(), lines[1].strip())
 accounts = client.get_accounts()
 
 start_date = datetime.date(2021, 11, 27)
